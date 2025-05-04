@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:halal_media/presentation/screen/auth_screen/recover_password_screen.dart';
+import 'package:halal_media/presentation/screen/navigation_bar.dart';
 import 'package:halal_media/presentation/widgets/shared_widgets/custom_text%20_widget.dart';
 import 'package:halal_media/presentation/widgets/shared_widgets/custom_text_field.dart';
 import 'package:halal_media/core/theme/app_color.dart';
@@ -76,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                         AppDimension.h45,
                         titleText(
                           text: "Log In",
-                          color: AppColor.white,
+                          color: AppColor.green,
                           fontWeight: FontWeight.bold,
                           fontSize: 30,
                         ),
@@ -152,7 +153,13 @@ class LoginScreen extends StatelessWidget {
                                     state is LoginLoading
                                         ? null
                                         : () {
-                                          loginCubit.login();
+                                          //loginCubit.login();
+                                          Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => Navbar(),
+                                            ),
+                                          );
                                         },
                                 child:
                                     state is LoginLoading
@@ -161,9 +168,9 @@ class LoginScreen extends StatelessWidget {
                                         )
                                         : customText(
                                           text: "Log in",
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 14,
-                                          color: AppColor.deepGreen,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16,
+                                          color: AppColor.white,
                                         ),
                               ),
                             );

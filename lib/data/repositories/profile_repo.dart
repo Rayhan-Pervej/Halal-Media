@@ -21,7 +21,7 @@ class ProfileRepo {
       email: 'aisha@example.com',
       channelName: 'Faith & Wellness',
       description: 'Sharing knowledge on Islam and mental health.',
-      preferences: ['mental health', 'islamic history', 'duas'],
+      preferences: ['quran', 'islamic history', 'duas'],
       subscribedTo: ['103'],
       subscribers: ['101'],
     ),

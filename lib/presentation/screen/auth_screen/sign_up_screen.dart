@@ -133,9 +133,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 )
                                 : customText(
                                   text: "Sign up",
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
-                                  color: AppColor.deepGreen,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  color: AppColor.white,
                                 ),
                       ),
                     );

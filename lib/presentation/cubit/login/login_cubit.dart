@@ -15,7 +15,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> login() async {
     if (!formKey.currentState!.validate()) {
-      //emit(LoginFailure("Invalid email or password"));
+      
       return;
     }
 

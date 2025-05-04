@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:halal_media/data/models/user_model.dart';
 import 'package:halal_media/data/repositories/profile_repo.dart';
 import 'package:meta/meta.dart';
 
@@ -15,7 +14,17 @@ class PreferencesCubit extends Cubit<PreferencesState> {
       emit(PreferencesLoading());
 
       // Simulated list of all available topics (would come from API)
-      final allTopics = ['quran', 'hadith', 'seerah', 'fiqh', 'dua'];
+      final allTopics = [
+        'quran',
+        'hadith',
+        'daily reminders',
+        'seerah',
+        'fiqh',
+        'dua',
+        'tafseer',
+
+        'ramadan',
+      ];
 
       // Fetch user profile (with preferences)
       final user = await profileRepo.fetchUserProfile();

@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: AppColor.lightGreen),
         ),
-        home: const Navbar(),
+        home: const LoginScreen(),
         localizationsDelegates: [FlutterQuillLocalizations.delegate],
       ),
     );

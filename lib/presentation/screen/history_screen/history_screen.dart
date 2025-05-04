@@ -98,7 +98,12 @@ class _HistoryScreenState extends State<HistoryScreen> {
             return Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
+                  padding: const EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    top: 16,
+                    bottom: 8,
+                  ),
                   child: Row(
                     children: [
                       CustomDropdown(
@@ -122,33 +127,36 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         },
                       ),
                       const SizedBox(width: 10),
-                      TextButton(
-                        onPressed:
-                            state.selectedFilter == "Custom"
-                                ? () async {
-                                  final picked = await _pickDate();
-                                  if (picked != null) {
-                                    context.read<HistoryCubit>().fetchHistory(
-                                      "Custom",
-                                      date: picked,
-                                    );
-                                  }
-                                }
-                                : null,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColor.green,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            side: BorderSide(color: AppColor.gray200),
+                      Visibility(
+                        visible: state.selectedFilter == "Custom",
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        child: TextButton(
+                          onPressed: () async {
+                            final picked = await _pickDate();
+                            if (picked != null) {
+                              context.read<HistoryCubit>().fetchHistory(
+                                "Custom",
+                                date: picked,
+                              );
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.green,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              side: BorderSide(color: AppColor.gray200),
+                            ),
                           ),
-                        ),
-                        child: Text(
-                          state.selectedDate == null
-                              ? 'Pick Date'
-                              : DateFormat(
-                                'dd/MM/yyyy',
-                              ).format(state.selectedDate!),
-                          style: TextStyle(color: AppColor.white),
+                          child: Text(
+                            state.selectedDate == null
+                                ? 'Pick Date'
+                                : DateFormat(
+                                  'dd/MM/yyyy',
+                                ).format(state.selectedDate!),
+                            style: TextStyle(color: AppColor.white),
+                          ),
                         ),
                       ),
                     ],
